@@ -93,7 +93,6 @@ class Game extends React.Component {
       history.push(squares);
 
       this.setState({
-        player: player,
         history: history,
         winner: winner,
         step_number: this.state.step_number + 1

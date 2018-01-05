@@ -4,7 +4,6 @@ import './index.css';
 
 class Square extends React.Component {
   constructor(props) {
-    console.info("props", props);
     super(props)
     this.state = {
       value: props.value,
@@ -27,12 +26,24 @@ class Square extends React.Component {
 }
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      squares: Array(9).fill(null),
+      player: "X",
+    };
+  
+    for(let i = 0; i < this.state.squares.length; ++i){
+      this.state.squares[i] = i;
+    }
+  }
+
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} />;
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + this.state.player;
 
     return (
       <div>

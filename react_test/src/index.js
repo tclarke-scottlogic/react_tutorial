@@ -84,7 +84,6 @@ class Game extends React.Component {
     if (!this.state.winner && !squares[i]) {
       squares[i] = this.player();
 
-      let player = this.player();
       let winner = true;
       if (!this.calculateWinner(squares)) {
         winner = false;
